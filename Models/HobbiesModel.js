@@ -1,8 +1,8 @@
 const client = require('../db');
 
-const EducationModel = {
-    async getEducation(){
-        const sql = `SELECT * FROM professional`;
+const HobbiesModel = {
+    async getHobbies(){
+        const sql = `SELECT * FROM hobbies`;
 
         try {
         const result = await client.query(sql);
@@ -12,9 +12,9 @@ const EducationModel = {
         throw error;
         }
     },
-    async getEducationByID({education_id}){
-        const sql = `SELECT * FROM education WHERE education_id=$1`;
-        const values = [education_id];
+    async getHobbyByID({hobby_id}){
+        const sql = `SELECT * FROM hobbies WHERE hobbie_id=$1`;
+        const values = [hobby_id];
 
         try {
         const result = await client.query(sql, values);
