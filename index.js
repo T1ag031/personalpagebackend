@@ -1,9 +1,9 @@
 const express = require('express');
 const cors = require('cors');
-const { login, authenticateToken } = require('./login.js');
-const {getMe, createMe, updateMe} = require('./Controllers/MeController.js')
-const {getUsers, createUser, updateUser, deleteUser} = require('./Controllers/UserController.js');
-const {getAllMovements} = require('./Controllers/HistoryController.js');
+const Login = require('./routes/loginRoutes')
+const User = require('./routes/userRoutes');
+const Me = require('./routes/meRoutes');
+
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -16,21 +16,16 @@ app.use(cors({
 app.use(express.json());
 
 //LOGIN
-app.post('/login', login);
+app.use('/login', Login);
 
 //HISTORY
-app.get('/history', authenticateToken, getAllMovements);
+//app.use('/history', authenticateToken, getAllMovements);
 
 //ME
-app.get('/me', authenticateToken, getMe);
-app.post('/me/create', authenticateToken, createMe);
-app.put('/me/update',authenticateToken, updateMe);
+app.use('/me', Me);
 
 //USERS
-app.get('/users', authenticateToken, getUsers);
-app.post('/users/create', authenticateToken, createUser);
-app.put('/users/update',authenticateToken, updateUser);
-app.delete('/users/delete',authenticateToken, deleteUser);
+app.use('/users', User);
 
 //USERTYPE
 /*app.get('/users/types', authenticateToken, getAllUserTypes);
