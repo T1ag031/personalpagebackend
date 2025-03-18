@@ -1,48 +1,34 @@
-const client = require('../db');
+const HobbiesModel = require('../Models/HobbiesModel');
 
-const getAllHobbies = async(req, res) => {
-    try{
-
-    }catch(error){
-        console.error('Erro:', error);
-        return { error: 'Erro: ' + error, success: false };
+const HobbiesController = {
+    async getHobbies(req, res){
+        try{
+        
+        }catch(error){
+            return { error: 'Erro: ' + error, success: false };
+        }
+    },
+    async createHobby(req, res){
+        try{
+        
+        }catch(error){
+            return { error: 'Erro: ' + error, success: false };
+        }
+    },
+    async updateHobby(req, res){
+        try{
+        
+        }catch(error){
+            return { error: 'Erro: ' + error, success: false };
+        }
+    },
+    async deleteHobby(req, res){
+        try{
+        
+        }catch(error){
+            return { error: 'Erro: ' + error, success: false };
+        }
     }
 }
 
-const getHobbiebyID = async(req, res) => {
-    try{
-
-    }catch(error){
-        console.error('Erro:', error);
-        return { error: 'Erro: ' + error, success: false };
-    }
-}
-
-const createHobbie = async(req, res) => {
-    try{
-
-    }catch(error){
-        console.error('Erro:', error);
-        return { error: 'Erro: ' + error, success: false };
-    }
-}
-
-const updateHobbie = async(req, res) => {
-    try{
-
-    }catch(error){
-        console.error('Erro:', error);
-        return { error: 'Erro: ' + error, success: false };
-    }
-}
-
-const deleteHobbie = async(req, res) => {
-    try{
-
-    }catch(error){
-        console.error('Erro:', error);
-        return { error: 'Erro: ' + error, success: false };
-    }
-}
-
-module.exports = {getAllHobbies, getHobbiebyID, createHobbie, updateHobbie, deleteHobbie};
+module.exports = HobbiesController;

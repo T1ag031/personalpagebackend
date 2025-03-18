@@ -1,48 +1,34 @@
-const client = require('../db');
+const ProfessionalModel = require('../Models/ProfessionalModel');
 
-const getAllProfessionalExp = async(req, res) => {
-    try{
-
-    }catch(error){
-        console.error('Erro:', error);
-        return { error: 'Erro: ' + error, success: false };
+const ProfessionalController = {
+    async getProfessionalExp(req, res){
+        try{
+        
+        }catch(error){
+            return { error: 'Erro: ' + error, success: false };
+        }
+    },
+    async createProfessionalExp(req, res){
+        try{
+        
+        }catch(error){
+            return { error: 'Erro: ' + error, success: false };
+        }
+    },
+    async updateProfessionalExp(req, res){
+        try{
+        
+        }catch(error){
+            return { error: 'Erro: ' + error, success: false };
+        }
+    },
+    async deleteProfessionalExp(req, res){
+        try{
+        
+        }catch(error){
+            return { error: 'Erro: ' + error, success: false };
+        }
     }
 }
 
-const getProfessionalExpbyID = async(req, res) => {
-    try{
-
-    }catch(error){
-        console.error('Erro:', error);
-        return { error: 'Erro: ' + error, success: false };
-    }
-}
-
-const createProfessionalExp = async(req, res) => {
-    try{
-
-    }catch(error){
-        console.error('Erro:', error);
-        return { error: 'Erro: ' + error, success: false };
-    }
-}
-
-const updateProfessionalExp = async(req, res) => {
-    try{
-
-    }catch(error){
-        console.error('Erro:', error);
-        return { error: 'Erro: ' + error, success: false };
-    }
-}
-
-const deleteProfessionalExp = async(req, res) => {
-    try{
-
-    }catch(error){
-        console.error('Erro:', error);
-        return { error: 'Erro: ' + error, success: false };
-    }
-}
-
-module.exports = {getAllProfessionalExp, getProfessionalExpbyID, createProfessionalExp, updateProfessionalExp, deleteProfessionalExp};
+module.exports = ProfessionalController;

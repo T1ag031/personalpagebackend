@@ -1,48 +1,34 @@
-const client = require('../db');
+const EducationModel = require('../Models/EducationModel');
 
-const getEducation = async(req, res) => {
-    try{
-
-    }catch(error){
-        console.error('Erro:', error);
-        return { error: 'Erro: ' + error, success: false };
+const EducationController = {
+    async getEducation(req, res){
+        try{
+        
+        }catch(error){
+            return { error: 'Erro: ' + error, success: false };
+        }
+    },
+    async createEducation(req, res){
+        try{
+        
+        }catch(error){
+            return { error: 'Erro: ' + error, success: false };
+        }
+    },
+    async updateEducation(req, res){
+        try{
+        
+        }catch(error){
+            return { error: 'Erro: ' + error, success: false };
+        }
+    },
+    async deleteEducation(req, res){
+        try{
+        
+        }catch(error){
+            return { error: 'Erro: ' + error, success: false };
+        }
     }
-}
+};
 
-const getEducationbyID = async(req, res) => {
-    try{
-
-    }catch(error){
-        console.error('Erro:', error);
-        return { error: 'Erro: ' + error, success: false };
-    }
-}
-
-const createEducation = async(req, res) => {
-    try{
-
-    }catch(error){
-        console.error('Erro:', error);
-        return { error: 'Erro: ' + error, success: false };
-    }
-}
-
-const updateEducation = async(req, res) => {
-    try{
-
-    }catch(error){
-        console.error('Erro:', error);
-        return { error: 'Erro: ' + error, success: false };
-    }
-}
-
-const deleteEducation = async(req, res) => {
-    try{
-
-    }catch(error){
-        console.error('Erro:', error);
-        return { error: 'Erro: ' + error, success: false };
-    }
-}
-
-module.exports = {getEducation, getEducationbyID, createEducation, updateEducation, deleteEducation};
+module.exports = EducationController;
