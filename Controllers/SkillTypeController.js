@@ -1,6 +1,6 @@
 const SkillModel = require('../Models/SkillModel');
 
-const UserTypeController = {
+const SkillTypeController = {
     async getSkillTypes(req, res){
         try{
         
@@ -31,4 +31,4 @@ const UserTypeController = {
     }
 }
 
-module.exports = UserTypeController;
+module.exports = SkillTypeController;
