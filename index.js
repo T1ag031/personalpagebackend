@@ -3,6 +3,9 @@ const cors = require('cors');
 const Login = require('./routes/loginRoutes')
 const User = require('./routes/userRoutes');
 const Me = require('./routes/meRoutes');
+const History = require('./routes/historyRoutes');
+const Social = require('./routes/socialRoutes');
+
 
 
 const app = express();
@@ -19,7 +22,7 @@ app.use(express.json());
 app.use('/login', Login);
 
 //HISTORY
-//app.use('/history', authenticateToken, getAllMovements);
+app.use('/history', History);
 
 //ME
 app.use('/me', Me);
@@ -28,15 +31,8 @@ app.use('/me', Me);
 app.use('/users', User);
 
 //USERTYPE
-/*app.get('/users/types', authenticateToken, getAllUserTypes);
-app.get('/users/types/:user_type_id', authenticateToken, getUserTypebyId);*/
 
 //SKILLS
-/*app.get('/skills', authenticateToken, getAllSkills);
-app.get('/skills/:skill_id', authenticateToken, getSkillbyID);
-app.post('/skills/create', authenticateToken, createSkill);
-app.put('/skills/update', authenticateToken, updateSkill);
-app.delete('/skills/delete/:skill_id', authenticateToken, deleteSkill);*/
 
 //SKILLTYPE
 
@@ -45,7 +41,7 @@ app.delete('/skills/delete/:skill_id', authenticateToken, deleteSkill);*/
 //HOBBIES
 
 //SOCIAL
-
+app.use('/socials', Social);
 //PROFESSIONAL
 
 

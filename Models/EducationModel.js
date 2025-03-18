@@ -51,11 +51,11 @@ const EducationModel = {
             throw error;
         }
     },
-    async deleteEducation({professional_id}){
+    async deleteEducation({education_id}){
         const sql = `DELETE FROM education
                     WHERE education_id=$1`;
 
-        const values = [professional_id];
+        const values = [education_id];
         try {
         const result = await client.query(sql, values);
         return result;
@@ -65,4 +65,4 @@ const EducationModel = {
         }
     }
 }
-module.exports = ProfessionalModel;
+module.exports = EducationModel;

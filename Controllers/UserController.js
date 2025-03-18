@@ -6,7 +6,6 @@ const UserController ={
         try{
             const {user_id, active} = req.query;
             let result;
-            let data;
             
             if (!user_id && active){
                 result = await UserModel.getActiveUsers();
@@ -16,7 +15,7 @@ const UserController ={
                 result = await UserModel.getAllUsers();
             }
 
-            data = result.rows;
+            const data = result.rows;
             if(result.rowCount > 0){
                 return res.status(200).json({data});
             }else{
@@ -72,8 +71,6 @@ const UserController ={
             if (!user_id) return res.status(400).json({ message: "O campo 'user_id' é obrigatório", success: false });
     
             const result = await UserModel.deleteUser({ user_id});
-
-            console.log(result);
 
             if (result.rowCount > 0) {
                 HistoryModel.createMovement("DELETE", "Apagar Dados na BD", "USER", new Date(), delete_user_id);
