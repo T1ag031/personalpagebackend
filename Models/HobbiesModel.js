@@ -24,10 +24,10 @@ const HobbiesModel = {
         throw error;
         }
     },
-    async createEducation({ cycle, description, start_year, end_year, school, me_id}) {
-        const sql = `INSERT INTO education( cycle, description, start_year, end_year, school, me_id)
-                     VALUES ($1, $2, $3, $4, $5, $6)`;
-        const values = [ cycle, description, start_year, end_year, school, me_id];
+    async createHobbie({name, description, me_id }) {
+        const sql = `INSERT INTO hobbies(name, description, me_id)
+                     VALUES ($1, $2, $3)`;
+        const values = [ name, description, me_id];
 
         try {
             const result = await client.query(sql, values);
@@ -37,12 +37,12 @@ const HobbiesModel = {
             throw error;
         }
     },
-    async updateEducation({education_id , cycle, description, start_year, end_year, school, me_id}){
-        const sql = `UPDATE education 
-                    SET cycle=$1, description=$2, start_year=$3, end_year=$4, school=$5, me_id=$6
-                    WHERE education_id=$7`;
+    async updateHobby({hobby_id, name, description, me_id}){
+        const sql = `UPDATE hobbies 
+                    SET =$1, =$2, =$3
+                    WHERE hobbie_id=$4`;
 
-        const values = [ cycle, description, start_year, end_year, school, me_id, education_id];
+        const values = [name, description, me_id, hobby_id];
         try {
             const result = await client.query(sql, values);
             return result;
@@ -51,11 +51,11 @@ const HobbiesModel = {
             throw error;
         }
     },
-    async deleteEducation({professional_id}){
-        const sql = `DELETE FROM education
-                    WHERE education_id=$1`;
+    async deleteHobby({hobby_id}){
+        const sql = `DELETE FROM hobbies
+                    WHERE hobbie_id=$1`;
 
-        const values = [professional_id];
+        const values = [hobby_id];
         try {
         const result = await client.query(sql, values);
         return result;
