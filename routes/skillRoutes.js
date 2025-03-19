@@ -12,7 +12,7 @@ router.delete("/delete", Auth.authenticateToken, SkillController.deleteSkill);
 
 router.get("/type", Auth.authenticateToken, SkillTypeController.getSkillTypes);
 router.post("/type/create", Auth.authenticateToken, SkillTypeController.createSkillType);
-router.put("/type/update", Auth.authenticateToken, SkillTypeController.updateSkillTypes);
-router.delete("/type/delete", Auth.authenticateToken, SkillTypeController.deleteSkillType);
+//router.put("/type/update", Auth.authenticateToken, SkillTypeController.updateSkillTypes);
+//router.delete("/type/delete", Auth.authenticateToken, SkillTypeController.deleteSkillType);
 
 module.exports = router;
