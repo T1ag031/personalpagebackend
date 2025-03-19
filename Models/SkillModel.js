@@ -77,7 +77,6 @@ const SkillModel = {
 
     async getSkillTypes(){
         const sql = `SELECT * FROM skill_type ORDER BY skill_type_id`;
-
         try {
             const result = await client.query(sql);
             return result;

@@ -1,4 +1,5 @@
 const HobbiesModel = require('../Models/HobbiesModel');
+const HistoryModel = require('./../Models/HistoryModel');
 
 const HobbiesController = {
     async getHobbies(req, res){

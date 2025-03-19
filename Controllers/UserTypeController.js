@@ -1,4 +1,5 @@
 const UserModel = require('./../Models/UserModel.js');
+const HistoryModel = require('./../Models/HistoryModel');
 
 const UserTypeController = {
     async getUserTypes(req,res){
@@ -25,11 +26,13 @@ const UserTypeController = {
 
     async createUserType(req, res){
         try{
-            const {name} = req.body;
+            const {name, user_id} = req.body;
+            
             const result = await UserModel.createUserType({name});
             const data = result.rows;
 
             if(result.rowCount > 0){
+                HistoryModel.createMovement("POST", "Criação de Dados na BD", "USER TYPE", new Date(), user_id);
                 return res.status(200).json({data});
             }else{
                 return res.status(404).json({ message: "Erro ao criar Tipo de Utilizador.", success: false });

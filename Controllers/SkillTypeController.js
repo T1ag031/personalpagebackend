@@ -1,4 +1,5 @@
 const SkillModel = require('../Models/SkillModel');
+const HistoryModel = require('./../Models/HistoryModel');
 
 const SkillTypeController = {
     async getSkillTypes(req, res){

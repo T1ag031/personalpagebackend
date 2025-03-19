@@ -1,4 +1,5 @@
 const EducationModel = require('../Models/EducationModel');
+const HistoryModel = require('./../Models/HistoryModel');
 
 const EducationController = {
     async getEducation(req, res){

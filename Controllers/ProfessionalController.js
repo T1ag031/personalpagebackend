@@ -1,4 +1,5 @@
 const ProfessionalModel = require('../Models/ProfessionalModel');
+const HistoryModel = require('./../Models/HistoryModel');
 
 const ProfessionalController = {
     async getProfessionalExp(req, res){

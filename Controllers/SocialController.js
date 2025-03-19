@@ -1,4 +1,5 @@
 const SocialModel = require('./../Models/SocialModel');
+const HistoryModel = require('./../Models/HistoryModel');
 
 const SocialController = {
     async getSocials(req, res){
