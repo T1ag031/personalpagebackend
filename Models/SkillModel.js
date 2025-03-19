@@ -4,7 +4,7 @@ const SkillModel = {
     async getAllSkills(){
         const sql = `SELECT s.skill_id, s.name, s.description, s.level, s.me_id, s.skill_type_id, st.name
                         FROM skills s 
-                        INNER JOIN skill_type st on st.skill_type_id = s-skill_type_id`;
+                        INNER JOIN skill_type st on st.skill_type_id = s.skill_type_id`;
         try {
             const result = await client.query(sql);
             return result;

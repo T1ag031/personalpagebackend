@@ -9,7 +9,7 @@ const HistoryController ={
             if(!type){
                 result = await HistoryModel.getAllHistory();
             }else{
-                const result = await HistoryModel.getHistorybyType({type});
+                result = await HistoryModel.getHistorybyType({type});
             }
             
             const data = result.rows;

@@ -2,7 +2,7 @@ const client = require('../db');
 
 const UserModel = {
     async getActiveUsers(){
-        const sql = `SELECT u.user_id, u.nome, u.username, u.active, u.user_type_id, ut.name
+        const sql = `SELECT u.user_id, u.nome, u.email, u.username, u.active, u.user_type_id, ut.name as user_type
                      FROM "user" u 
                      INNER JOIN usertype ut ON ut.user_type_id = u.user_type_id
                      WHERE u.active = true
@@ -18,7 +18,7 @@ const UserModel = {
     },
 
     async getAllUsers(){
-        const sql = `SELECT u.user_id, u.nome, u.username, u.active, u.user_type_id, ut.name
+        const sql = `SELECT u.user_id, u.nome, u.email, u.username, u.active, u.user_type_id, ut.name as user_type
                      FROM "user" u 
                      INNER JOIN usertype ut ON ut.user_type_id = u.user_type_id
                      ORDER BY u.user_id`;
@@ -33,7 +33,7 @@ const UserModel = {
     },
 
     async getUserbyId({user_id}){
-        const sql = `SELECT u.user_id, u.nome, u.username, u.active, u.user_type_id, ut.name
+        const sql = `SELECT u.user_id, u.nome, u.email, u.username, u.active, u.user_type_id, ut.name as user_type
                      FROM "user" u 
                      INNER JOIN usertype ut ON ut.user_type_id = u.user_type_id
                      WHERE u.user_id= $1

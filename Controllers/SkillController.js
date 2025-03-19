@@ -5,7 +5,7 @@ const SkillController = {
         try{
             const {skill_id} = req.query;
             let result;
-
+            console.log("Entrou");
             if(!skill_id){
                 result = await SkillModel.getAllSkills();
             }else{
