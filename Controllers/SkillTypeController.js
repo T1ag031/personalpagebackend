@@ -14,7 +14,7 @@ const SkillTypeController = {
         }catch(error){
             return { error: 'Erro: ' + error, success: false };
         }
-    },
+    },/*
     async updateSkillTypes(req, res){
         try{
         
@@ -28,7 +28,7 @@ const SkillTypeController = {
         }catch(error){
             return { error: 'Erro: ' + error, success: false };
         }
-    }
+    }*/
 }
 
 module.exports = SkillTypeController;

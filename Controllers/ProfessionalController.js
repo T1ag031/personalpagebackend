@@ -61,7 +61,7 @@ const ProfessionalController = {
             const result = await ProfessionalModel.deleteProfessional({professional_id});
 
             if (result.rowCount > 0) {
-                HistoryModel.createMovement("DELETE", "Apagar Dados na BD", "PROFESSIONAL", new Date(), delete_user_id);
+                HistoryModel.createMovement("DELETE", "Apagar Dados na BD", "PROFESSIONAL", new Date(), user_id);
                 return res.status(200).json({ message: "registo apagado com sucesso", success: true });
             } else {
                 return res.status(404).json({ message: "Nenhum registo encontrado.", success: false });

@@ -61,7 +61,7 @@ const EducationController = {
             const result = EducationModel.deleteEducation({education_id});
 
             if (result.rowCount > 0) {
-                HistoryModel.createMovement("DELETE", "Apagar Dados na BD", "EDUCATION", new Date(), delete_user_id);
+                HistoryModel.createMovement("DELETE", "Apagar Dados na BD", "EDUCATION", new Date(), user_id);
                 return res.status(200).json({ message: "Apagado com sucesso", success: true });
             } else {
                 return res.status(404).json({ message: "Nenhum registo encontrado.", success: false });

@@ -1,6 +1,6 @@
 const client = require('../db');
 
-const SocialModel = {
+const SkillModel = {
     async getAllSkills(){
         const sql = `SELECT s.skill_id, s.name, s.description, s.level, s.me_id, s.skill_type_id, st.name
                         FROM skills s 
@@ -115,4 +115,4 @@ const SocialModel = {
     }
 }
 
-module.exports = SocialModel;
+module.exports = SkillModel;

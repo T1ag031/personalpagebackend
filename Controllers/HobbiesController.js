@@ -63,7 +63,7 @@ const HobbiesController = {
             const result = await HobbiesModel.deleteHobby({hobby_id});
 
             if (result.rowCount > 0) {
-                HistoryModel.createMovement("DELETE", "Apagar Dados na BD", "HOBBIES", new Date(), delete_user_id);
+                HistoryModel.createMovement("DELETE", "Apagar Dados na BD", "HOBBIES", new Date(), user_id);
                 return res.status(200).json({ message: "Apagado com sucesso", success: true });
             } else {
                 return res.status(404).json({ message: "Nenhum registo encontrado.", success: false });
