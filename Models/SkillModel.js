@@ -3,7 +3,7 @@ const client = require('../db');
 const SkillModel = {
     async getAllSkills(){
         const sql = `SELECT s.skill_id, s.name, s.description, s.level, s.me_id, s.skill_type_id, st.name
-                        FROM skills s 
+                        FROM skill s 
                         INNER JOIN skill_type st on st.skill_type_id = s.skill_type_id`;
         try {
             const result = await client.query(sql);
@@ -16,7 +16,7 @@ const SkillModel = {
 
     async getSkillbyId({skill_id}){
         const sql = `SELECT s.skill_id, s.name, s.description, s.level, s.me_id, s.skill_type_id, st.name
-                        FROM skills s 
+                        FROM skill s 
                         INNER JOIN skill_type st on st.skill_type_id = s-skill_type_id
                         WHERE s.skill_id = $1`;
 
@@ -32,7 +32,7 @@ const SkillModel = {
     },
 
     async createSkill({name, description, level, me_id, skill_type_id}){
-        const sql = `INSER INTO skills(name, description, level, me_id, skill_type_id)
+        const sql = `INSER INTO skill(name, description, level, me_id, skill_type_id)
                         VALUES ($1, $2, $3, $4, $5)`;
 
         const values = [name, description, level, me_id, skill_type_id];
@@ -47,7 +47,7 @@ const SkillModel = {
     },
 
     async updateSkill({skill_id, name, description, level, me_id, skill_type_id}){
-        const sql = `UPDATE skills 
+        const sql = `UPDATE skill
                     SET name = $1, description = $2, level = $3, me_id = $4, skill_type_id = $5
                     WHERE skill_id = $6`;
         const values = [name, description, level, me_id, skill_type_id, skill_id];
@@ -62,7 +62,7 @@ const SkillModel = {
     },
 
     async deleteSkill({skill_id}){
-        const sql = `DELETE FROM skills 
+        const sql = `DELETE FROM skill
                     WHERE skill_id = $1`;
         const values = [skill_id];
 
