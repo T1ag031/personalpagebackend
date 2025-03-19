@@ -1,6 +1,5 @@
-/*const { Client } = require('pg');
+const { Client } = require('pg');
 
-// Configuração do cliente PostgreSQL
 const client = new Client({
     user: 'postgres',
     host: 'localhost',
@@ -8,14 +7,13 @@ const client = new Client({
     password: '123',
 });
 
-// Conecta ao banco de dados
 client.connect()
     .then(() => console.log('Conectado ao banco de dados PostgreSQL com sucesso!'))
     .catch(err => console.error('Erro ao conectar ao banco de dados:', err.stack));
 
-module.exports = client;*/
+module.exports = client;
 
-const { Client } = require('pg');
+/*const { Client } = require('pg');
 
 const client = new Client({
     connectionString: process.env.DATABASE_URL, 
@@ -28,3 +26,4 @@ client.connect()
     .catch(err => console.error('Erro ao conectar ao banco de dados:', err.stack));
 
 module.exports = client;
+*/

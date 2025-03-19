@@ -4,7 +4,7 @@ CREATE TABLE usertype (
     active BOOLEAN NOT NULL DEFAULT TRUE
 );
 
-CREATE TABLE user (
+CREATE TABLE "user" (
     user_id SERIAL PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
     email VARCHAR(255) NOT NULL UNIQUE,
@@ -86,7 +86,7 @@ CREATE TABLE skill(
     description VARCHAR(255),
     level VARCHAR(255) NOT NULL,
     me_id INT NOT NULL,
-    FOREIGN KEY (me_id) REFERENCES me(me_id)
+    FOREIGN KEY (me_id) REFERENCES me(me_id),
     skill_type_id INT NOT NULL,
     FOREIGN KEY (skill_type_id) REFERENCES skill_type(skill_type_id)
 );
