@@ -13,7 +13,7 @@ const HobbiesModel = {
         }
     },
     async getHobbyByID({hobby_id}){
-        const sql = `SELECT * FROM hobbies WHERE hobbie_id=$1`;
+        const sql = `SELECT * FROM hobbies WHERE hobby_id=$1`;
         const values = [hobby_id];
 
         try {
@@ -40,7 +40,7 @@ const HobbiesModel = {
     async updateHobby({hobby_id, name, description, me_id}){
         const sql = `UPDATE hobbies 
                     SET =$1, =$2, =$3
-                    WHERE hobbie_id=$4`;
+                    WHERE hobby_id=$4`;
 
         const values = [name, description, me_id, hobby_id];
         try {

@@ -2,7 +2,7 @@ const client = require('../db');
 
 const UserModel = {
     async getActiveUsers(){
-        const sql = `SELECT u.user_id, u.nome, u.email, u.username, u.active, u.user_type_id, ut.name as user_type
+        const sql = `SELECT u.user_id, u.name, u.email, u.username, u.active, u.user_type_id, ut.name as user_type
                      FROM "user" u 
                      INNER JOIN usertype ut ON ut.user_type_id = u.user_type_id
                      WHERE u.active = true
@@ -18,7 +18,7 @@ const UserModel = {
     },
 
     async getAllUsers(){
-        const sql = `SELECT u.user_id, u.nome, u.email, u.username, u.active, u.user_type_id, ut.name as user_type
+        const sql = `SELECT u.user_id, u.name, u.email, u.username, u.active, u.user_type_id, ut.name as user_type
                      FROM "user" u 
                      INNER JOIN usertype ut ON ut.user_type_id = u.user_type_id
                      ORDER BY u.user_id`;
@@ -33,7 +33,7 @@ const UserModel = {
     },
 
     async getUserbyId({user_id}){
-        const sql = `SELECT u.user_id, u.nome, u.email, u.username, u.active, u.user_type_id, ut.name as user_type
+        const sql = `SELECT u.user_id, u.name, u.email, u.username, u.active, u.user_type_id, ut.name as user_type
                      FROM "user" u 
                      INNER JOIN usertype ut ON ut.user_type_id = u.user_type_id
                      WHERE u.user_id= $1
@@ -50,7 +50,7 @@ const UserModel = {
     },
 
     async createUser({ nome, email, username, password, user_type_id}) {
-        const sql = `INSERT INTO "user"(nome, email, username, password, user_type_id)
+        const sql = `INSERT INTO "user"(name, email, username, password, user_type_id)
                      VALUES ($1, $2, $3, $4, $5)`;
         const values = [nome, email, username, password, user_type_id];
         console.log("Entrou2");
@@ -66,7 +66,7 @@ const UserModel = {
     async updateUser({ user_id, nome, email, username, password, user_type_id }) {
         const sql = `
             UPDATE "user" 
-            SET nome = $1, email = $2, username = $3, password = $4, user_type_id = $5
+            SET name = $1, email = $2, username = $3, password = $4, user_type_id = $5
             WHERE user_id = $6;
         `;
         const values = [nome, email, username, password, user_type_id, user_id];
@@ -111,7 +111,7 @@ const UserModel = {
     
     async getUserTypebyId({user_type_id}){
         const sql = `SELECT * FROM usertype
-                    WHERE `;
+                    WHERE user_type_id=$1`;
         const values = [user_type_id];
 
         try {
