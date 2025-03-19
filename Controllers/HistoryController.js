@@ -22,10 +22,6 @@ const HistoryController ={
         }catch(error){
             return res.status(500).json({ message: "Erro ao carregar dados", success: false, error: error.message });
         }
-    },
-
-    async createMovement(req, res){
-        
     }
 }
 
