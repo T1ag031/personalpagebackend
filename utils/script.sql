@@ -90,3 +90,5 @@ CREATE TABLE skill(
     skill_type_id INT NOT NULL,
     FOREIGN KEY (skill_type_id) REFERENCES skill_type(skill_type_id)
 );
+
+ALTER TABLE me ADD CONSTRAINT only_one_row CHECK ((id = 1));

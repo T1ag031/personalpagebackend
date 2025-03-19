@@ -25,10 +25,10 @@ const ProfessionalModel = {
         throw error;
         }
     },
-    async createProfessional({ nome, description, company, start_date, end_date, me_id}) {
+    async createProfessional({ name, description, company, start_date, end_date, me_id}) {
         const sql = `INSERT INTO professional(name, description, company, start_date, end_date, me_id)
                      VALUES ($1, $2, $3, $4, $5, $6)`;
-        const values = [nome, description, company, start_date, end_date, me_id];
+        const values = [name, description, company, start_date, end_date, me_id];
 
         try {
             const result = await client.query(sql, values);

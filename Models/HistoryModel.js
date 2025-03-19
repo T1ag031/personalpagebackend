@@ -2,7 +2,8 @@ const client = require('../db');
 
 const HistoryModel = {
     async getAllHistory() {
-        const sql = `SELECT * FROM history`;
+        const sql = `SELECT h.movement_id, h.type, h.description, h.table_name, h.date, u.nome FROM history h
+                            LEFT JOIN "user" u on u.user_id = h.user_id`;
         try {
             const result = await client.query(sql);
             return result;

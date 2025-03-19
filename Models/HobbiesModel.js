@@ -65,4 +65,4 @@ const HobbiesModel = {
         }
     }
 }
-module.exports = ProfessionalModel;
+module.exports = HobbiesModel;
